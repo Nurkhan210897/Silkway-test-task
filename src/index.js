@@ -1,8 +1,10 @@
-import Vue from "vue"
 import './scss/main.scss';
+window.Vue = require('Vue/dist/vue');
 
-new Vue({
+Vue.component('task', require('./components/task.vue').default)
+Vue.component('task2', require('./components/task2.vue').default)
+
+
+const app = new Vue({
     el: '#app',
 })
-
-Vue.component('task', require('./components/task.vue'))
