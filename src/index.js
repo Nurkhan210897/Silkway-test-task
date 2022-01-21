@@ -1,10 +1,13 @@
 import './scss/main.scss';
-window.Vue = require('Vue/dist/vue');
-
-Vue.component('task', require('./components/task.vue').default)
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
 import store from '@/store/'
 
 const app = new Vue({
+    router,
     store,
-    el: '#app',
-})
+    render: h => h(App),
+}).$mount('#app')
+
+// Vue.use(VueRouter)

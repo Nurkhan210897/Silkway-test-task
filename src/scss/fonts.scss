@@ -1,0 +1,15 @@
+@font-face {
+    font-family: InterMedium;
+    src: url("@/assets/fonts/Inter-Medium.ttf");
+}
+
+body {
+    font-size: 16px;
+    font-family: InterMedium, sans-serif;
+}
+
+p {
+    &.default-text {
+        font-size: 1em;
+    }
+}

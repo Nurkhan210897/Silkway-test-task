@@ -20,6 +20,7 @@ module.exports = {
         extensions: ['.js'],
         alias: {
             '@': path.resolve(__dirname, 'src'),
+            'vue': 'vue/dist/vue.js',
         }
     },
 

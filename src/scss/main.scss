@@ -1,3 +1,10 @@
-body {
-    background-color: #fff;
-}
+// base
+@import './base.scss';
+// variables
+@import './variables.scss';
+// components
+@import './buttons.scss';
+// fonts
+@import './fonts.scss';
+// pages
+@import './home.scss';
