@@ -8,12 +8,14 @@ export default {
             state.todoList.push(task)
         },
 
-        editTask(state, { id, newTaskData }) {
-            console.log(id);
+        editTask(state, { id, newTaskValues }) {
             state.todoList.forEach((item) => {
+                let title = newTaskValues.title !== '' ? newTaskValues.title : item.title
+                let description = newTaskValues.description !== '' ? newTaskValues.description : item.description
+
                 if (item.id === id) {
-                    item.title = newTaskData.title !== '' ? newTaskData.title : task.title
-                    item.description = newTaskData.description !== '' ? newTaskData.description : task.description
+                    item.title = title
+                    item.description = description
                 }
             })
         },

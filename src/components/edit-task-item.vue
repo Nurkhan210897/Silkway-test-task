@@ -5,7 +5,7 @@
       class="edit-textfield"
       @input="inputHandler($event.target.value)"
     />
-    <button class="btn btn-save" @click="editTasks(task.id)">Save</button>
+    <button class="btn btn-save" @click="$emit('saveNewFieldValues')">Save</button>
   </div>
 </template>
 
@@ -14,13 +14,6 @@ export default {
   methods: {
     inputHandler(e) {
       this.$emit("input", e);
-    },
-    editTasks(id) {
-      let newTaskData = {
-        title: this.newTitle,
-        description: this.newDescription,
-      };
-      this.editTask({ id, newTaskData });
     },
   },
 };
