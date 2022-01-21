@@ -14,7 +14,9 @@
         placeholder="task description"
         v-model="description"
       ></textarea>
-      <button class="btn btn-submit" @click.prevent="addTask">Submit form</button>
+      <button class="btn btn-submit" @click.prevent="addTask">
+        Submit form
+      </button>
     </form>
   </div>
 </template>
@@ -24,6 +26,7 @@ import { mapMutations } from "vuex";
 
 export default {
   data: () => ({
+    taskId: 0,
     title: "",
     description: "",
   }),
@@ -33,13 +36,18 @@ export default {
       addTasks: "addTasks",
     }),
     addTask() {
+      this.taskId++;
+
       const task = {
+        id: this.taskId,
         title: this.title,
         description: this.description,
       };
+
       if (this.title.length) {
         this.addTasks(task);
       }
+      
       this.title = "";
       this.description = "";
     },
