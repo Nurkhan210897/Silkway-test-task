@@ -3,14 +3,14 @@
     <div class="task-body">
       <div class="task-body_title">
         <p class="default-text">{{ task.title }}</p>
-        <input type="text" v-model="newTitle" />
-        <button class="btn btn-edit" @click="editTasks(task.id)" >Edit</button>
+        <button class="btn btn-edit">Edit</button>
       </div>
+      <edit-task-item />
       <div class="task-body_description">
         <p class="default-text">{{ task.description }}</p>
-        <input type="text" v-model="newDescription" />
-        <button class="btn btn-edit" @click="editTasks(task.id)" >Edit</button>
+        <button class="btn btn-edit">Edit</button>
       </div>
+      <edit-task-item />
     </div>
     <button class="btn delete-task" @click="deleteTaks">delete</button>
   </div>
@@ -18,8 +18,10 @@
 
 <script>
 import { mapMutations } from "vuex";
+import editTaskItem from "./edit-task-item.vue";
 
 export default {
+  components: { editTaskItem },
   props: {
     task: {
       type: Object,
@@ -35,13 +37,7 @@ export default {
   }),
   methods: {
     ...mapMutations(["deleteTask", "editTask"]),
-    editTasks(id) {
-      let newTaskData = {
-        title: this.newTitle,
-        description: this.newDescription,
-      };
-      this.editTask({id, newTaskData})
-    },
+
     deleteTaks() {
       this.deleteTask(this.index);
     },
@@ -63,6 +59,12 @@ export default {
     &_name {
       font-size: 1em;
     }
+  }
+  .edit-textfield {
+    border: 1px solid #ccc;
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
   }
   .delete-task {
     position: absolute;

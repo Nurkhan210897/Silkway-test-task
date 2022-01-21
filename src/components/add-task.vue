@@ -4,11 +4,11 @@
       <input
         type="text"
         placeholder="Task title"
-        class="form_textfield"
+        class="form-textfield"
         v-model="title"
       />
       <textarea
-        class="form_textfield"
+        class="form-textfield"
         rows="7"
         cols=""
         placeholder="task description"
@@ -47,7 +47,7 @@ export default {
       if (this.title.length) {
         this.addTasks(task);
       }
-      
+
       this.title = "";
       this.description = "";
     },
@@ -58,7 +58,7 @@ export default {
 <style lang="scss">
 .form {
   padding: 0 50px;
-  &_textfield {
+  &-textfield {
     display: block;
     border: 1px solid #ccc;
     padding: 10px 20px;
